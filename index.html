@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireHive 🐝</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1 class="logo">HireHive 🐝</h1>
+        <nav class="nav">
+            <a href="#" data-page="home">Home</a>
+            <a href="#" data-page="jobs">Find Jobs</a>
+            <a href="#" data-page="employer">Employers</a>
+            <a href="#" data-page="admin">Admin</a>
+            <button id="loginBtn">Login/Register</button>
+            <button id="themeToggleBtn"><i class="fas fa-moon"></i></button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="home" class="page-section active">
+            <section class="hero-section">
+                <h2>Your career starts here.</h2>
+                <p>Connecting talent with opportunity across various industries.</p>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for a job title or keyword...">
+                    <button>Search</button>
+                </div>
+            </section>
+            
+            <section class="info-section">
+                <div class="info-card">
+                    <h3>For Job Seekers</h3>
+                    <p>Build your profile, upload your resume, and get matched with jobs.</p>
+                    <a href="#" data-page="jobs" class="cta-button">Find Jobs</a>
+                </div>
+                <div class="info-card">
+                    <h3>For Employers</h3>
+                    <p>Post jobs, manage applications, and find the perfect candidate.</p>
+                    <a href="#" data-page="employer" class="cta-button">Post a Job</a>
+                </div>
+                <div class="info-card">
+                    <h3>Unlock Your Potential</h3>
+                    <p>Subscribe to apply for jobs and unlock exclusive features.</p>
+                    <button id="subscribeBtn" class="cta-button">View Plans</button>
+                </div>
+            </section>
+            
+            <section class="domain-hives">
+                <h3>Our Hives of Opportunity</h3>
+                <div class="services-globe">
+                    <div class="globe-container">
+                        <div class="globe"></div>
+                        <div class="services-overlay" id="servicesGlobe"></div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section id="jobs" class="page-section">
+            <div class="form-section">
+                <h2>Your Job Seeker Profile</h2>
+                <form id="profileForm">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" required><br>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" required><br>
+                    <label for="skills">Skills (comma-separated):</label><br>
+                    <input type="text" id="skills" placeholder="e.g., JavaScript, CSS, HTML" required><br>
+                    <label for="education">Education:</label><br>
+                    <input type="text" id="education" required><br>
+                    <label for="cvUpload">Upload CV:</label><br>
+                    <input type="file" id="cvUpload" accept=".pdf,.doc,.docx"><br><br>
+                    <button type="submit">Save Profile</button>
+                </form>
+            </div>
+            
+            <div class="job-listing-section">
+                <h3>Recommended Jobs for You</h3>
+                <div id="recommendedJobsList" class="job-listing-container"></div>
+                
+                <h3>You are shortlisted for these jobs!</h3>
+                <div id="shortlistedJobsList" class="job-listing-container"></div>
+            </div>
+        </section>
+
+        <section id="employer" class="page-section">
+            <div class="form-section">
+                <h2>Post a New Job</h2>
+                <form id="postJobForm">
+                    <label for="jobTitle">Job Title:</label><br>
+                    <input type="text" id="jobTitle" required><br>
+                    <label for="companyName">Company:</label><br>
+                    <input type="text" id="companyName" required><br>
+                    <label for="jobDescription">Description:</label><br>
+                    <textarea id="jobDescription" required></textarea><br>
+                    <label for="skillsRequired">Skills Required (comma-separated):</label><br>
+                    <input type="text" id="skillsRequired" required><br>
+                    <label for="salary">Salary:</label><br>
+                    <input type="text" id="salary" required><br>
+                    <label for="location">Location:</label><br>
+                    <input type="text" id="location" required><br><br>
+                    <button type="submit">Post Job</button>
+                </form>
+            </div>
+            
+            <div class="posted-jobs-section">
+                <h3>Your Posted Jobs</h3>
+                <div id="postedJobsList"></div>
+            </div>
+        </section>
+
+        <section id="admin" class="page-section">
+            <div class="admin-dashboard">
+                <div class="dashboard-header">
+                    <h2>Admin Dashboard</h2>
+                    <div class="dots-menu-container">
+                        <i class="fas fa-ellipsis-v three-dots" id="adminMenuToggle"></i>
+                        <div class="dropdown-menu" id="adminDropdownMenu">
+                            <a href="#">Settings</a>
+                            <a href="#">Export Data</a>
+                            <a href="#">User Management</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <h4>Total Job Seekers</h4>
+                        <p id="totalJobSeekers">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Total Employers</h4>
+                        <p id="totalEmployers">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Total Posted Jobs</h4>
+                        <p id="totalPostedJobs">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Active Subscriptions</h4>
+                        <p id="activeSubscriptions">0</p>
+                    </div>
+                </div>
+
+                <h3>All Posted Jobs</h3>
+                <div id="allJobsList"></div>
+                
+                <h3>All Users</h3>
+                <div id="allUsersList"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 HireHive. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
