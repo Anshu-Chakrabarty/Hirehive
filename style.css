@@ -140,7 +140,6 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    /* CORRECTED IMAGE PATH */
     background-image: url('honeycomb.webp'); 
     background-size: cover; 
     background-position: center;
@@ -339,4 +338,77 @@ body {
     background-color: #1f2a40;
     color: white;
     margin-top: 50px;
+}
+
+/* ==================================
+   Responsive Design
+   ================================== */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .nav {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav a, .nav button {
+        margin: 5px;
+        font-size: 0.9em;
+    }
+
+    .info-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .info-card {
+        width: 90%;
+        padding: 30px;
+    }
+    
+    .search-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .search-bar input {
+        width: 90%;
+        max-width: none;
+    }
+    
+    .search-bar button {
+        width: 90%;
+    }
+
+    .dashboard-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .stat-card {
+        width: 100%;
+    }
+
+    .globe-container {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .service-item {
+        font-size: 0.8em;
+    }
 }
